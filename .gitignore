@@ -1,0 +1,23 @@
+# local planning doc, never published
+prd.md
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# environment / secrets
+.env
+.env.*
+!.env.example
+
+# local persistence
+*.sqlite3
+*.db
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
