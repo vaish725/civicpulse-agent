@@ -35,6 +35,24 @@ CivicPulse is a single Strands agent that:
 
 Routine and non-time-sensitive items are grouped into a lower section of the digest instead of being surfaced as urgent. Only relevant items with a genuinely imminent, specific action are put at the top.
 
+## Example: semantic reasoning, not keyword matching
+
+A real agenda item from the live San Jose feed:
+
+> **PP25-008, Title 20 Zoning Code Amendment, Reasonable Accommodation.**
+> Matter 26-951, Land Use Consent Agenda, September 15, 2026 meeting.
+
+The neighborhood profile carries `housing_affordability` and `housing_accessibility` as two separate, deliberately distinct priorities. A keyword filter would see "zoning" and other housing-adjacent language here and plausibly lump this item in with affordability. `assess_relevance`'s actual, unedited output on this item was:
+
+```
+matched_priorities: ["housing_accessibility"]
+reasoning: "This is a zoning code amendment specifically addressing reasonable
+accommodation, which directly relates to disability access and fair housing
+compliance in land use, the core of the housing accessibility priority."
+```
+
+It did not match `housing_affordability`, because "reasonable accommodation" under the Fair Housing Amendments Act is a disability-access mechanism, not a general housing-supply or cost policy, despite sharing zoning and housing-adjacent language with that other priority. This is the specific case the project was built to demonstrate: two priorities that share vocabulary but mean different things, judged correctly on what the item actually does rather than what words it contains.
+
 ## What it deliberately does not do
 
 - It does not submit public comments automatically. A human always reviews and sends.
@@ -47,7 +65,7 @@ Routine and non-time-sensitive items are grouped into a lower section of the dig
 ```mermaid
 flowchart TD
     L[Live Legistar Web API] -->|fetch_agenda_with_fallback| F[Fetched agenda items]
-    C[Cached fallback snapshot] -. used only if the live fetch fails .-> F
+    C[Cached fallback snapshot] -.->|used only if the live fetch fails| F
     F --> S[Seen-items store: skip items already processed]
     S --> A[CivicPulse Strands agent]
     A --> R[assess_relevance]
