@@ -1,0 +1,705 @@
+{
+  "fetched_at_utc": "2026-09-12T01:34:39.200230+00:00",
+  "body_id": 138,
+  "items": [
+    {
+      "matter_id": 15915,
+      "matter_file": "26-602",
+      "title": "Language Access Instructions / Instrucciones de interpretaci\u00f3n / H\u01b0\u1edbng d\u1eabn di\u1ec5n gi\u1ea3i",
+      "matter_type": "Consent Agenda",
+      "is_consent": true,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=15915&GUID=615F2E10-BDB6-4332-9319-F40D57363982",
+      "attachments": [
+        {
+          "name": "Language Access Page",
+          "url": "https://www.sanjoseca.gov/your-government/appointees/city-clerk/language-access-for-city-council-and-council-committee-meetings"
+        },
+        {
+          "name": "How to Use Wordly illustration",
+          "url": "https://www.sanjoseca.gov/your-government/appointees/city-clerk/your-city-your-voice/language-access-wordly-instructions"
+        }
+      ]
+    },
+    {
+      "matter_id": 16230,
+      "matter_file": "26-931",
+      "title": "Amendment to the Master Parking Rate Schedule for Downtown Parking Meter Rates and Hours. - DEFERRED TO 9/29/2026 PER ADMINISTRATION",
+      "matter_type": "Transportation & Aviation Services",
+      "is_consent": false,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16230&GUID=2DA9B654-BA26-4897-8D02-E946C5D152CF",
+      "attachments": [
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/e8a91513-19e1-4003-8a9b-b6216b880a69.pdf"
+        },
+        {
+          "name": "Resolution",
+          "url": "https://legistar.granicus.com/sanjose/attachments/d1104f74-7c46-4f6f-aca5-bf4ef626a6ee.pdf"
+        },
+        {
+          "name": "Letters from the Public - 1 of 2",
+          "url": "https://legistar.granicus.com/sanjose/attachments/9f7524a5-4f75-4f32-831f-589f858f28c8.pdf"
+        },
+        {
+          "name": "Letters from the Public - 1 of 2",
+          "url": "https://legistar.granicus.com/sanjose/attachments/51a9b56b-aefb-45e1-8d71-9c8b0a140330.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16231,
+      "matter_file": "26-934",
+      "title": "Temporary Moratorium Related to Detention and Custodial Facility on Private Property.",
+      "matter_type": "Strategic Support",
+      "is_consent": false,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16231&GUID=BC516F33-5A8D-4B3D-988C-0FA156D09A67",
+      "attachments": [
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/e7c56464-c598-4335-b403-1583edb56dd0.pdf"
+        },
+        {
+          "name": "Supplemental Memorandum, 9/4/26",
+          "url": "https://legistar.granicus.com/sanjose/attachments/a9ab76fb-e910-4938-a2ee-da3906b0708a.pdf"
+        },
+        {
+          "name": "Ordinance",
+          "url": "https://legistar.granicus.com/sanjose/attachments/f6bc743d-a889-4722-888d-4135a45ce171.pdf"
+        },
+        {
+          "name": "Supplemental Memorandum, 9/10/26",
+          "url": "https://legistar.granicus.com/sanjose/attachments/d1c8cbde-5859-4dbc-8bbe-a2182a8884af.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16239,
+      "matter_file": "26-940",
+      "title": "Closed Session Agenda",
+      "matter_type": "Closed Session Agenda",
+      "is_consent": false,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16239&GUID=2A5896B0-8FB0-48FA-BF03-FE82C0AA9576",
+      "attachments": [
+        {
+          "name": "Closed Session Agenda",
+          "url": "https://legistar.granicus.com/sanjose/attachments/e612530b-bbae-4927-84eb-ae52dc457276.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16232,
+      "matter_file": "26-937",
+      "title": "Fourth Quarter Financial Reports for Fiscal Year 2025-2026.",
+      "matter_type": "Consent Agenda",
+      "is_consent": true,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16232&GUID=D62172E0-5BB2-4CF2-AB77-21AC52B7B3E2",
+      "attachments": [
+        {
+          "name": "Letters from the Public",
+          "url": "https://legistar.granicus.com/sanjose/attachments/eab7dbfb-56d0-417a-8cb1-d2af19e360e1.pdf"
+        },
+        {
+          "name": "Presentation, 8/20/26, PSFSS",
+          "url": "https://legistar.granicus.com/sanjose/attachments/b5b9287d-29d6-4774-8b24-6c2d594e8724.pdf"
+        },
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/2a511ce6-c974-44e9-ab2f-2e94ed225213.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16240,
+      "matter_file": "26-941",
+      "title": "Conflict of Interest Code Biennial Update.",
+      "matter_type": "Consent Agenda",
+      "is_consent": true,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16240&GUID=E5ECA9B7-547F-4100-B619-E944F7CAFD99",
+      "attachments": [
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/05a00bc4-d171-4c4c-a468-967ce7f8af0f.pdf"
+        },
+        {
+          "name": "Resolution",
+          "url": "https://legistar.granicus.com/sanjose/attachments/b5fddcff-9889-4fcc-926a-1a7e8e87351f.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16241,
+      "matter_file": "26-942",
+      "title": "Actions Related to Travel to San Diego, California, for the October 2026 Treatment Diversion Study Mission.",
+      "matter_type": "Consent Agenda",
+      "is_consent": true,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16241&GUID=89025498-9FC0-41B9-A1A1-6B8168208EF9",
+      "attachments": [
+        {
+          "name": "Supplemental Memorandum - Quorum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/42cfabeb-9e1e-4ece-9302-4f39487fe054.pdf"
+        },
+        {
+          "name": "Replacement Supplemental Memorandum - Mayor/Council Travel Budget",
+          "url": "https://legistar.granicus.com/sanjose/attachments/9d7f974e-22a9-42c3-8053-22fb5181e9e5.pdf"
+        },
+        {
+          "name": "Replacement Memorandum, 9/9/26",
+          "url": "https://legistar.granicus.com/sanjose/attachments/8d8cae37-0ed2-47f1-97e4-dcc1df5a69b2.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16242,
+      "matter_file": "26-943",
+      "title": "Construction Contingency Increase for the 10186 - Yard Piping Improvements Phase 3 Project at the San Jos\u00e9-Santa Clara Regional Wastewater Facility.",
+      "matter_type": "Consent Agenda",
+      "is_consent": true,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16242&GUID=AB86224A-B74C-4385-870D-3901C593FA23",
+      "attachments": [
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/87bb3b89-0830-4d42-a788-9e5e41188af5.pdf"
+        },
+        {
+          "name": "Letter from TPAC, 9/10/26",
+          "url": "https://legistar.granicus.com/sanjose/attachments/56bae83b-f0e0-40eb-aa16-0fae5bdb5764.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16243,
+      "matter_file": "26-944",
+      "title": "Amendment to the Agreement with Granicus, LLC for a Web Content Management System.",
+      "matter_type": "Consent Agenda",
+      "is_consent": true,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16243&GUID=E4CFE19D-4AAA-4E25-A999-D4185B2F36C8",
+      "attachments": [
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/45a23dab-78ac-4c5b-a70b-a4f5b3fa2d0a.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16244,
+      "matter_file": "26-945",
+      "title": "Amendment to the Agreement with Securitas Technology Corporation for Automated Access Control System Services.",
+      "matter_type": "Consent Agenda",
+      "is_consent": true,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16244&GUID=34212393-674B-4FCA-BE45-A32BE63B6B01",
+      "attachments": [
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/00b219db-b757-4f17-9a4b-a4007f87ec29.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16245,
+      "matter_file": "26-946",
+      "title": "Amendment to the Purchase Order with OpportunitySpace, Inc. dba Tolemi for Redevelopment Impact Assessment Tools.",
+      "matter_type": "Consent Agenda",
+      "is_consent": true,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16245&GUID=C7E1D034-2392-42FC-8255-34D9CDD10DF9",
+      "attachments": [
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/c7e3bfc5-96c7-4e07-96ff-708998ae48e8.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16246,
+      "matter_file": "26-947",
+      "title": "Agreement with West Valley Sanitation District for Joint Use Sanitary Sewers.",
+      "matter_type": "Consent Agenda",
+      "is_consent": true,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16246&GUID=A4897672-5F94-4B40-904F-B7B38A6CC981",
+      "attachments": [
+        {
+          "name": "Agreement",
+          "url": "https://legistar.granicus.com/sanjose/attachments/d186f300-b10f-4af8-998b-f0d49641c599.pdf"
+        },
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/d768dc56-d323-4a16-b67e-cd0419c74b8e.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16247,
+      "matter_file": "26-948",
+      "title": "Council Focus Area Annual Report for Fiscal Year 2025-2026.",
+      "matter_type": "Strategic Support",
+      "is_consent": false,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16247&GUID=711AA538-5436-489D-B195-1FD970862435",
+      "attachments": [
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/638034a3-1f8b-413a-91eb-5bc14dac3e9b.pdf"
+        },
+        {
+          "name": "Attachment",
+          "url": "https://legistar.granicus.com/sanjose/attachments/b90cc10d-c414-41ce-8990-801b4e82b55e.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16248,
+      "matter_file": "26-949",
+      "title": "Multifamily Housing Incentive Program Residential Tax and Fee Waiver for the Development Project Located at 3896 Stevens Creek Blvd.",
+      "matter_type": "Community & Economic Development",
+      "is_consent": false,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16248&GUID=D4797250-9AE6-4C65-82F4-A307FCE7A594",
+      "attachments": [
+        {
+          "name": "Resolution",
+          "url": "https://legistar.granicus.com/sanjose/attachments/f2e20600-184d-48a1-9c41-a0fdbe4de8ba.pdf"
+        },
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/e774c6c6-9ee0-49b9-95fd-40d5f8106372.pdf"
+        },
+        {
+          "name": "Letter from the Public",
+          "url": "https://legistar.granicus.com/sanjose/attachments/c83d91ac-3af7-4418-9d87-8aabde1df4d9.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16249,
+      "matter_file": "26-950",
+      "title": "Updated Functional Zero Model and Fiscal Year 2026-2027 Reducing Unsheltered Homelessness Focus Area Work Plan.",
+      "matter_type": "Strategic Support",
+      "is_consent": false,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16249&GUID=16689054-C9AB-468B-A0CB-3E2F114EDE9C",
+      "attachments": [
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/864f1d98-0b5e-4ba9-99c0-5fb4316af699.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16250,
+      "matter_file": "26-951",
+      "title": "PP25-008 - Title 20 Zoning Code Amendment Reasonable Accommodation.",
+      "matter_type": "Land Use Consent Agenda",
+      "is_consent": true,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16250&GUID=4678EC7A-F257-4C78-A7C3-ACF6BBEBBF79",
+      "attachments": [
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/f32226a7-242b-454a-9be7-1ea7a96b65ff.pdf"
+        },
+        {
+          "name": "Ordinance",
+          "url": "https://legistar.granicus.com/sanjose/attachments/c169b803-1978-434f-b690-5e587bcb12c8.pdf"
+        },
+        {
+          "name": "Resolution",
+          "url": "https://legistar.granicus.com/sanjose/attachments/0ec982d1-fbb5-41d9-ace3-4338c832da3d.pdf"
+        },
+        {
+          "name": "Letters from the Public",
+          "url": "https://legistar.granicus.com/sanjose/attachments/bd44294a-b399-4b4c-bef3-a4fcbff35de8.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16251,
+      "matter_file": "26-952",
+      "title": "PD25-020 & ER25-212 - Planned Development Permit for Certain Real Property Located at 5651 Cottle Road.",
+      "matter_type": "Land Use Consent Agenda",
+      "is_consent": true,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16251&GUID=634E29ED-C697-4D5D-B855-4A7E834CFDF8",
+      "attachments": [
+        {
+          "name": "Resolution",
+          "url": "https://legistar.granicus.com/sanjose/attachments/e04d0034-5f93-4301-80f6-1bd089547705.pdf"
+        },
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/1bbab299-2a21-4403-8f53-103f0d05e11b.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16252,
+      "matter_file": "26-953",
+      "title": "H23-028, T23-022 & ER23-230 - Site Development Permit and Vesting Tentative Map for Certain Real Property Located at Cozy Drive and Glider Drive.",
+      "matter_type": "Land Use Consent Agenda",
+      "is_consent": true,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16252&GUID=BB5CEA2A-F32D-4EB9-A053-1D21596010B5",
+      "attachments": [
+        {
+          "name": "Letters from the Public",
+          "url": "https://legistar.granicus.com/sanjose/attachments/369cb10c-c358-4744-bf85-72f304ffbacc.pdf"
+        },
+        {
+          "name": "(a) Resolution",
+          "url": "https://legistar.granicus.com/sanjose/attachments/c7cf3e34-328f-4992-b146-d4038be2afe1.pdf"
+        },
+        {
+          "name": "(b) Resolution",
+          "url": "https://legistar.granicus.com/sanjose/attachments/1fbcb620-e892-409f-be45-61e35a24d5c1.pdf"
+        },
+        {
+          "name": "(c) Resolution",
+          "url": "https://legistar.granicus.com/sanjose/attachments/25b637c7-b09d-4f1b-8b9d-22f882cffb3d.pdf"
+        },
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/922b9fc1-4b65-4ab3-803e-f4ec3b65cbb1.pdf"
+        },
+        {
+          "name": "Attachments",
+          "url": "https://legistar.granicus.com/sanjose/attachments/e68376d6-3d88-4faf-a1c9-da8d48b48be1.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16253,
+      "matter_file": "26-954",
+      "title": "Final Adoption of Ordinances.",
+      "matter_type": "Final Adoption of Ordinance",
+      "is_consent": false,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16253&GUID=BE3C3064-7C93-4C73-AA97-F7D9BBD662FB",
+      "attachments": []
+    },
+    {
+      "matter_id": 16254,
+      "matter_file": "26-955",
+      "title": "Approval of City Council Minutes.",
+      "matter_type": "Approval of Council Minutes",
+      "is_consent": false,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16254&GUID=91DE55D3-3275-485A-96A6-14AED97B5C14",
+      "attachments": [
+        {
+          "name": "(a) 08/25/2026 CC Minutes",
+          "url": "https://legistar.granicus.com/sanjose/attachments/7c2f0cb0-e3f3-4123-aaa6-13282cbe41da.pdf"
+        },
+        {
+          "name": "(b) 09/01/2026 CC Minutes",
+          "url": "https://legistar.granicus.com/sanjose/attachments/8721fe13-54e5-49aa-8eb7-d4afdb09bc2a.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16255,
+      "matter_file": "26-956",
+      "title": "Approval of Council Committee Minutes.",
+      "matter_type": "Approval of Council Committee Minutes",
+      "is_consent": false,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16255&GUID=92306DD9-667C-44AE-8FDC-F8C992264099",
+      "attachments": [
+        {
+          "name": "(a) 08/26/2026 ROGC Minutes",
+          "url": "https://legistar.granicus.com/sanjose/attachments/27fe7246-d517-4269-9b7c-39ef60b619df.pdf"
+        },
+        {
+          "name": "(b) 09/02/2026 ROGC Minutes",
+          "url": "https://legistar.granicus.com/sanjose/attachments/9513547f-66a3-4d84-8d08-7bd70ba07014.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16279,
+      "matter_file": "26-981",
+      "title": "Request for Travel and Excused Absence.",
+      "matter_type": "Consent Agenda",
+      "is_consent": true,
+      "meeting_date": "2026-09-15",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16279&GUID=3D5A0DE8-3DC3-4F14-A594-F5410DF90F48",
+      "attachments": [
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/a52166b3-8465-47b4-949f-f0d1bc229a58.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 15915,
+      "matter_file": "26-602",
+      "title": "Language Access Instructions / Instrucciones de interpretaci\u00f3n / H\u01b0\u1edbng d\u1eabn di\u1ec5n gi\u1ea3i",
+      "matter_type": "Consent Agenda",
+      "is_consent": true,
+      "meeting_date": "2026-09-22",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8105_A_City_Council_26-09-22_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=15915&GUID=615F2E10-BDB6-4332-9319-F40D57363982",
+      "attachments": [
+        {
+          "name": "Language Access Page",
+          "url": "https://www.sanjoseca.gov/your-government/appointees/city-clerk/language-access-for-city-council-and-council-committee-meetings"
+        },
+        {
+          "name": "How to Use Wordly illustration",
+          "url": "https://www.sanjoseca.gov/your-government/appointees/city-clerk/your-city-your-voice/language-access-wordly-instructions"
+        }
+      ]
+    },
+    {
+      "matter_id": 16264,
+      "matter_file": "26-965",
+      "title": "Closed Session Agenda",
+      "matter_type": "Closed Session Agenda",
+      "is_consent": false,
+      "meeting_date": "2026-09-22",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8105_A_City_Council_26-09-22_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16264&GUID=9CEA4834-E0EA-4890-A079-D31F1937BDA9",
+      "attachments": []
+    },
+    {
+      "matter_id": 16266,
+      "matter_file": "26-966",
+      "title": "Actions Related to the Reimbursement of Approved 2025-2026 Capital Repairs at the SAP Center.",
+      "matter_type": "Consent Agenda",
+      "is_consent": true,
+      "meeting_date": "2026-09-22",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8105_A_City_Council_26-09-22_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16266&GUID=1F4C2E80-A2FA-41FB-A6FE-9C68AEFDDD60",
+      "attachments": [
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/83d4390f-200e-4caf-9479-67fd3364bbaa.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16267,
+      "matter_file": "26-967",
+      "title": "Approval of Citywide Insurance Renewals.",
+      "matter_type": "Consent Agenda",
+      "is_consent": true,
+      "meeting_date": "2026-09-22",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8105_A_City_Council_26-09-22_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16267&GUID=5E070CAF-CAA6-4C10-84C9-89F130C6070E",
+      "attachments": [
+        {
+          "name": "Resolution",
+          "url": "https://legistar.granicus.com/sanjose/attachments/4541bd57-a12e-44cd-a8b9-24d916743f8a.pdf"
+        },
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/97b6b464-fa73-41a3-8462-f5189e1c00da.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16268,
+      "matter_file": "26-968",
+      "title": "Amendment to the Funding Agreement with East Side Union High School District for a Community Wireless Network.",
+      "matter_type": "Consent Agenda",
+      "is_consent": true,
+      "meeting_date": "2026-09-22",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8105_A_City_Council_26-09-22_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16268&GUID=91CECAE3-D8AF-4D29-B679-DDB86B9154F1",
+      "attachments": [
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/fecadb4d-f3fc-43ea-aa9e-eb6f7f4e0f53.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16269,
+      "matter_file": "26-969",
+      "title": "2026 Summer Intergovernmental Relations Report.",
+      "matter_type": "Strategic Support",
+      "is_consent": false,
+      "meeting_date": "2026-09-22",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8105_A_City_Council_26-09-22_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16269&GUID=1F79EEDC-CA16-4B37-B225-284F34861E12",
+      "attachments": [
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/c8d5f01b-4e5b-488e-9c46-ee6584fef939.pdf"
+        },
+        {
+          "name": "Attachments",
+          "url": "https://legistar.granicus.com/sanjose/attachments/61e7a461-fa7e-4fef-be6d-f81ff8185cc3.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16270,
+      "matter_file": "26-970",
+      "title": "Status of Open Audit Recommendations.",
+      "matter_type": "Strategic Support",
+      "is_consent": false,
+      "meeting_date": "2026-09-22",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8105_A_City_Council_26-09-22_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16270&GUID=A5DE9D3E-7604-4C2B-AAE2-E0919F9E1CDE",
+      "attachments": [
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/c6c06813-cd45-455b-a1b8-fff950458c40.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16271,
+      "matter_file": "26-973",
+      "title": "Employee Turnover Audit Report.",
+      "matter_type": "Strategic Support",
+      "is_consent": false,
+      "meeting_date": "2026-09-22",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8105_A_City_Council_26-09-22_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16271&GUID=C7CEBD7F-EC2A-464D-AE59-285828BED194",
+      "attachments": [
+        {
+          "name": "Presentation, 8/20/26, PSFSS",
+          "url": "https://legistar.granicus.com/sanjose/attachments/a4dc2013-6908-4489-bae8-3f6f94d55045.pdf"
+        },
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/06909e73-2540-4437-934f-e522b73854e9.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16272,
+      "matter_file": "26-974",
+      "title": "Stormwater Management Annual Report 2025-2026.",
+      "matter_type": "Environmental & Utility Services",
+      "is_consent": false,
+      "meeting_date": "2026-09-22",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8105_A_City_Council_26-09-22_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16272&GUID=65D0604F-8CB6-49D6-8D81-8B73684F3499",
+      "attachments": [
+        {
+          "name": "Resolution",
+          "url": "https://legistar.granicus.com/sanjose/attachments/6d8d210a-1733-473d-864a-db349e71ed58.pdf"
+        },
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/4a3cc943-340c-44fc-906e-cd23a5c4f055.pdf"
+        },
+        {
+          "name": "Attachment",
+          "url": "https://legistar.granicus.com/sanjose/attachments/cdc0ca8e-5828-4bd1-add7-9653ee89dc2d.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16274,
+      "matter_file": "26-976",
+      "title": "Actions Related to the Arena Hotel Redevelopment and Homekey Program Transition. - DROPPED",
+      "matter_type": "Community & Economic Development",
+      "is_consent": false,
+      "meeting_date": "2026-09-22",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8105_A_City_Council_26-09-22_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16274&GUID=388F720C-FC70-4A59-8E36-63227EE10B5B",
+      "attachments": [
+        {
+          "name": "Presentation - est. 5 minutes",
+          "url": "https://legistar.granicus.com/sanjose/attachments/add90a74-4a90-45e4-8e80-a3c38af75df7.pdf"
+        },
+        {
+          "name": "Letters from the Public",
+          "url": "https://legistar.granicus.com/sanjose/attachments/ab8eb570-b3e6-412a-9cca-5026355ceb3f.pdf"
+        },
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/affe5c54-2f75-4f15-a4d2-17e81a154213.pdf"
+        },
+        {
+          "name": "Resolution",
+          "url": "https://legistar.granicus.com/sanjose/attachments/ad95d769-944f-43a2-a419-8d88592ad411.pdf"
+        }
+      ]
+    },
+    {
+      "matter_id": 16275,
+      "matter_file": "26-977",
+      "title": "Fiscal Year 2025-2026 Consolidated Annual Performance and Evaluation Report.",
+      "matter_type": "Community & Economic Development",
+      "is_consent": false,
+      "meeting_date": "2026-09-22",
+      "meeting_body": "City Council",
+      "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8105_A_City_Council_26-09-22_Agenda.pdf",
+      "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16275&GUID=28A0DEF1-67BC-4A8F-BDA6-F8959D1EB0F6",
+      "attachments": [
+        {
+          "name": "Memorandum",
+          "url": "https://legistar.granicus.com/sanjose/attachments/d2ec8ff3-0c90-4922-8440-a26eaa410081.pdf"
+        }
+      ]
+    }
+  ]
+}

@@ -66,7 +66,7 @@ Model: Claude via Amazon Bedrock. Persistence: a local store of previously seen 
 
 ## Data source
 
-City of San Jose, CA, via the public Legistar Web API (`https://webapi.legistar.com/v1/sanjose/`). This is a real, live, publicly accessible data source, not a synthetic dataset. A cached snapshot of a real pull is kept locally as a fallback so a demo never depends on the live government site being reachable at the time.
+City of San Jose, CA, via the public Legistar Web API (`https://webapi.legistar.com/v1/sanjose/`). This is a real, live, publicly accessible data source, not a synthetic dataset. A snapshot of a real pull is kept at `data/fallback/agenda_snapshot.json`; if the live feed is ever unreachable, the agent automatically falls back to it so a demo never depends on the government site's uptime. Refresh it with `scripts/save_fallback_snapshot.py` before a demo.
 
 ## Status
 

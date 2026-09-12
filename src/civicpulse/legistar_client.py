@@ -13,8 +13,10 @@ Legistar's data model, relevant to us:
   Matter  -> the underlying legislative file (title, type, attachments).
 """
 
+import json
 import time
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 
 import requests
 
@@ -23,6 +25,12 @@ from civicpulse.config import CITY_ID, LEGISTAR_BASE_URL
 REQUEST_TIMEOUT_SECONDS = 15
 MAX_RETRIES = 3
 RETRY_BACKOFF_SECONDS = 2
+
+# A real snapshot pulled from the live feed, kept on disk so a demo never
+# depends on the government site being reachable at the time. Refresh it by
+# running scripts/save_fallback_snapshot.py; this is real data (not
+# synthetic), just captured at a point in time rather than fetched live.
+FALLBACK_SNAPSHOT_PATH = Path(__file__).resolve().parent.parent.parent / "data" / "fallback" / "agenda_snapshot.json"
 
 
 def _get(path: str, params: dict | None = None) -> list | dict:
@@ -127,3 +135,44 @@ def fetch_agenda(body_id: int, days_ahead: int = 30, include_attachments: bool =
                     pass
             items.append(item)
     return items
+
+
+def save_fallback_snapshot(body_id: int, days_ahead: int = 30) -> int:
+    """Pull a real, current agenda and save it as the demo fallback snapshot.
+
+    Meant to be run manually (see scripts/save_fallback_snapshot.py) a short
+    while before a demo, not called as part of the regular ingestion loop.
+    Returns the number of items saved.
+    """
+    items = fetch_agenda(body_id, days_ahead=days_ahead)
+    snapshot = {
+        "fetched_at_utc": datetime.now(timezone.utc).isoformat(),
+        "body_id": body_id,
+        "items": items,
+    }
+    FALLBACK_SNAPSHOT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    FALLBACK_SNAPSHOT_PATH.write_text(json.dumps(snapshot, indent=2))
+    return len(items)
+
+
+def load_fallback_snapshot() -> list[dict]:
+    """Load the cached agenda snapshot from disk."""
+    snapshot = json.loads(FALLBACK_SNAPSHOT_PATH.read_text())
+    return snapshot["items"]
+
+
+def fetch_agenda_with_fallback(body_id: int, days_ahead: int = 30) -> list[dict]:
+    """Fetch the live agenda, falling back to the cached snapshot on failure.
+
+    This is the function the agent's core loop should call: it tries the
+    real feed first so day-to-day runs always see current data, and only
+    drops to the cached snapshot if the live site is genuinely unreachable,
+    so a demo is never at the mercy of a government website's uptime.
+    """
+    try:
+        return fetch_agenda(body_id, days_ahead=days_ahead)
+    except requests.exceptions.RequestException as e:
+        if not FALLBACK_SNAPSHOT_PATH.exists():
+            raise
+        print(f"Warning: live Legistar fetch failed ({e}); using cached fallback snapshot.")
+        return load_fallback_snapshot()

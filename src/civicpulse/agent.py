@@ -6,7 +6,7 @@ email, CLI output, etc.) that a person reads and acts on themselves.
 """
 
 from civicpulse.config import BEDROCK_MODEL_ID, BEDROCK_REGION, COUNCIL_BODY_ID
-from civicpulse.legistar_client import fetch_agenda as fetch_raw_agenda
+from civicpulse.legistar_client import fetch_agenda_with_fallback
 from civicpulse.storage import filter_unseen, mark_seen
 from civicpulse.tools import (
     assess_relevance,
@@ -68,7 +68,7 @@ def run_once(days_ahead: int = 30) -> str:
     nothing to gain from routing them through the model, and it keeps the
     agent from re-spending tokens re-fetching what we already have.
     """
-    items = filter_unseen(fetch_raw_agenda(COUNCIL_BODY_ID, days_ahead=days_ahead))
+    items = filter_unseen(fetch_agenda_with_fallback(COUNCIL_BODY_ID, days_ahead=days_ahead))
     if not items:
         # Nothing else prints in this branch (the agent never runs, so there
         # is no console trace to duplicate), so this is the one place that
