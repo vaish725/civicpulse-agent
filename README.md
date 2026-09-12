@@ -24,16 +24,16 @@ This is not built for policy professionals or lobbyists who already monitor ever
 
 ## What it does
 
-CivicPulse is a single agent, built with the Strands Agents SDK, that:
+CivicPulse is a single Strands agent that:
 
 1. Ingests newly published agenda items for a real city (San Jose, CA, via the Legistar Web API).
-2. Judges whether each item is relevant to a neighborhood group's stated priorities, using semantic reasoning rather than keyword matching, so an item can match a priority even when it shares no words with it.
-3. Classifies urgency: is a vote imminent, is a public comment window closing soon, or is this an informational item with no near-term action.
+2. Judges whether each item is relevant to a neighborhood group's stated priorities, using semantic reasoning rather than keyword matching, so an item can match a priority even when it shares no words with it, and a share-the-same-words item can correctly come back not relevant (a "reasonable accommodation" zoning item is disability access, not affordable housing).
+3. Classifies urgency from the meeting date and whether the item is on the consent calendar, since being on consent changes what "actionable" even means (see below).
 4. Summarizes relevant, time-sensitive items in plain language.
-5. Optionally drafts a neutral public-comment template for a human to personalize and submit themselves.
-6. Never sends, posts, or submits anything without explicit human approval.
+5. Drafts a neutral public-comment template for a human to personalize and submit themselves, only for items judged genuinely urgent.
+6. Renders everything to a static, read-only digest page. Nothing is ever sent, posted, or submitted automatically.
 
-Routine and non-time-sensitive items are batched into a periodic digest instead of generating an interrupt. Only relevant items with an imminent vote or closing comment window are surfaced immediately.
+Routine and non-time-sensitive items are grouped into a lower section of the digest instead of being surfaced as urgent. Only relevant items with a genuinely imminent, specific action are put at the top.
 
 ## What it deliberately does not do
 
@@ -44,33 +44,78 @@ Routine and non-time-sensitive items are batched into a periodic digest instead 
 
 ## Architecture
 
-```
-Scheduler (daily)
-      |
-      v
-Ingestion tool ---fetches---> City agenda source (Legistar Web API)
-      |
-      v
-CivicPulse agent
-  - fetch_agenda
-  - assess_relevance(item, group_priorities)
-  - classify_urgency(item)
-  - summarize_plain_language(item)
-  - draft_comment(item, priorities)   [only when relevance and urgency are both high]
-      |
-      v
-Human review queue  --approve / edit / reject-->  Digest email or comment draft
+```mermaid
+flowchart TD
+    L[Live Legistar Web API] -->|fetch_agenda_with_fallback| F[Fetched agenda items]
+    C[Cached fallback snapshot] -. used only if the live fetch fails .-> F
+    F --> S[Seen-items store: skip items already processed]
+    S --> A[CivicPulse Strands agent]
+    A --> R[assess_relevance]
+    R --> U[classify_urgency]
+    U --> M[summarize_plain_language]
+    U --> D[draft_comment: now-urgency items only]
+    A --> O[Structured output, validated against a schema]
+    O --> G[Digest renderer]
+    G --> H[Static HTML digest page]
+    H --> P[Human reviews, personalizes, and submits themselves]
 ```
 
-Model: Claude via Amazon Bedrock. Persistence: a local store of previously seen agenda item IDs, so re-runs do not re-surface the same item. A single well-scoped agent with a handful of tools is used instead of a multi-agent architecture; that tradeoff is discussed in the codebase as the project develops.
+Model: Claude on Amazon Bedrock. Persistence: a local SQLite store of previously seen agenda item IDs, so re-runs do not re-surface the same item. A single well-scoped agent with five tools is used instead of a multi-agent architecture; that is a deliberate scope decision for a short build, not a limitation discovered along the way.
+
+## Design decisions and things to watch out for
+
+- **Political neutrality is enforced in the prompts, not assumed.** `assess_relevance` is explicitly told to report when an item cuts both ways for a group's priorities (for example, a zoning change that helps affordability while adding parking pressure) rather than picking a side, and `draft_comment` is explicitly told to present trade-offs neutrally instead of advocating.
+- **Deadlines are never treated as facts.** The city's own Legistar feed does not reliably expose structured public-comment deadlines, so `classify_urgency` reasons from the meeting date and consent status instead of a claimed deadline, every deadline-sensitive item links to the primary agenda source, and the digest carries an explicit reminder to verify dates there before acting.
+- **Urgency judgments are anchored to an explicit reference date, never an assumed "today."** This matters specifically because of the fallback mechanism below: without it, a cached snapshot read a day or more after capture could confidently report a comment window as "still open" after it had actually closed.
+- **A live-feed outage falls back to a real cached snapshot, and says so.** `fetch_agenda_with_fallback` tries the live San Jose feed first and only drops to `data/fallback/agenda_snapshot.json` if it is unreachable. The digest always states which source was used, and for a cached run, how stale it is; this needs to be visible on the page itself, not just in a log a presenter might not be looking at.
+- **Consent-calendar items are not automatically urgent.** A consent item passes as part of a routine batch vote unless someone requests it be pulled for individual discussion, so `classify_urgency` was explicitly tuned so being on the consent calendar is never itself a reason to flag urgency; only a genuine signal of controversy or unusual impact in the item's own text is.
+- **A prompt instruction alone was not trusted for the one invariant that most needed to hold.** The system prompt tells the model to draft a public comment only for "now"-urgency items, since a ready-to-send draft implies urgency an item may not have. But a model that can be talked around a prompt constraint under slightly different phrasing is a real reliability gap, and testing showed it happening. That invariant is therefore also enforced in code: a draft is discarded while rendering the digest if its item's urgency is not exactly "now," regardless of what the model produced.
+- **The schema fields that most needed to be optional were made optional, not just discouraged.** Early testing showed that requiring `urgency_level` in the agent's final structured answer caused the model to invent an urgency judgment for every item just to satisfy the schema, including ones already found not relevant, roughly tripling the Bedrock calls needed for one run. Making those fields genuinely optional and telling the prompt explicitly that non-relevant items should never reach `classify_urgency` brought one real run from 70 tool calls down to 41 against the same batch of live items.
+- **No emoji, no em dashes, anywhere the model's own text ends up.** The system prompt asks for this directly, and a small sanitizer strips both from every LLM-generated text field before it reaches the digest, since a prompt request is not a guarantee.
 
 ## Data source
 
 City of San Jose, CA, via the public Legistar Web API (`https://webapi.legistar.com/v1/sanjose/`). This is a real, live, publicly accessible data source, not a synthetic dataset. A snapshot of a real pull is kept at `data/fallback/agenda_snapshot.json`; if the live feed is ever unreachable, the agent automatically falls back to it so a demo never depends on the government site's uptime. Refresh it with `scripts/save_fallback_snapshot.py` before a demo.
 
+## Setup and running it locally
+
+Prerequisites: Python 3.11+, and an AWS account with Bedrock access to a Claude model (see the gotchas below; a brand-new AWS account needs a few one-time steps first).
+
+```bash
+git clone https://github.com/vaish725/civicpulse-agent.git
+cd civicpulse-agent
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+aws configure   # access key, secret key, a region with Claude enabled (e.g. us-east-1), output=json
+```
+
+Check `src/civicpulse/config.py` and make sure `BEDROCK_MODEL_ID` and `BEDROCK_REGION` match a model actually enabled in your account (see gotcha 4 below), then run one ingestion pass:
+
+```bash
+PYTHONPATH=src python3 -m civicpulse.agent
+```
+
+This prints a live trace of the agent's reasoning to the console and writes `data/digest/latest.html`, the actual human review surface; open it in a browser. Running it again immediately after will report no new items, since seen items are tracked locally in `data/seen_items.sqlite3`.
+
+To refresh the cached fallback snapshot used if the live feed is ever unreachable:
+
+```bash
+PYTHONPATH=src python3 scripts/save_fallback_snapshot.py
+```
+
+### AWS setup gotchas
+
+None of these are specific to this project; they are standard friction points for any brand-new AWS account's first real use of Bedrock, documented here so they don't cost the next person the same hour they cost this one.
+
+1. **Account verification.** New accounts go through an automatic fraud-prevention hold; Bedrock calls fail with an explicit "your account is currently being verified" error until it clears, usually within a couple of hours.
+2. **Anthropic use-case details form.** The first time any AWS account calls an Anthropic model, Bedrock requires a one-time form (Bedrock console, Model catalog, open a Claude model) describing the intended use. It can take about 15 minutes to propagate after submitting.
+3. **A valid payment method for AWS Marketplace specifically.** Anthropic's models on Bedrock are billed through AWS Marketplace, a separate payment system from an account's main billing preference. A bank-account-based default payment method (common outside the US) may not satisfy it; a credit or debit card does.
+4. **The newest model release may need to be requested individually.** A model released very recently can lag behind older ones in an account's access, and current-generation Claude models need an inference profile ID (a `us.` prefix), not the bare model ID, for on-demand use. Run `aws bedrock list-inference-profiles --region <region>` to see what is actually usable in your account, and set that in `config.py`.
+
 ## Status
 
-Actively in development. Setup and run instructions will be added here as the implementation lands.
+Core loop is complete and tested end to end against live data: ingestion, relevance and urgency judgment, plain-language summaries, neutral comment drafting, a fallback dataset for demo safety, and a rendered digest page. Remaining work: an architecture diagram export, a recorded demo, and an optional Bedrock AgentCore deployment (a Lambda/EventBridge schedule is an equally legitimate fallback if that does not land in time).
 
 ## License
 
