@@ -13,6 +13,7 @@ Legistar's data model, relevant to us:
   Matter  -> the underlying legislative file (title, type, attachments).
 """
 
+import time
 from datetime import datetime, timedelta, timezone
 
 import requests
@@ -20,18 +21,31 @@ import requests
 from civicpulse.config import CITY_ID, LEGISTAR_BASE_URL
 
 REQUEST_TIMEOUT_SECONDS = 15
+MAX_RETRIES = 3
+RETRY_BACKOFF_SECONDS = 2
 
 
 def _get(path: str, params: dict | None = None) -> list | dict:
     """Issue a GET against the Legistar API and return decoded JSON.
 
-    Raises requests.HTTPError on a non-2xx response so callers (and the
-    agent) see a clear failure instead of silently getting an empty result.
+    Government sites are not built for reliability demos: a dropped
+    connection here should not be treated the same as a real 404 or 500, so
+    transient network errors get a few short retries before giving up.
+    Raises on a genuine non-2xx response so callers see a clear failure
+    instead of silently getting an empty result.
     """
     url = f"{LEGISTAR_BASE_URL}/{path}"
-    response = requests.get(url, params=params, timeout=REQUEST_TIMEOUT_SECONDS)
-    response.raise_for_status()
-    return response.json()
+    last_error = None
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            response = requests.get(url, params=params, timeout=REQUEST_TIMEOUT_SECONDS)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.ConnectionError as e:
+            last_error = e
+            if attempt < MAX_RETRIES:
+                time.sleep(RETRY_BACKOFF_SECONDS * attempt)
+    raise last_error
 
 
 def get_upcoming_events(body_id: int, days_ahead: int = 30) -> list[dict]:
@@ -101,9 +115,15 @@ def fetch_agenda(body_id: int, days_ahead: int = 30, include_attachments: bool =
                 "attachments": [],
             }
             if include_attachments:
-                item["attachments"] = [
-                    {"name": a.get("MatterAttachmentName"), "url": a.get("MatterAttachmentHyperlink")}
-                    for a in get_matter_attachments(matter_id)
-                ]
+                try:
+                    item["attachments"] = [
+                        {"name": a.get("MatterAttachmentName"), "url": a.get("MatterAttachmentHyperlink")}
+                        for a in get_matter_attachments(matter_id)
+                    ]
+                except requests.exceptions.RequestException:
+                    # Attachments are a nice-to-have next to the item's own
+                    # source_url; one flaky call here should not sink an
+                    # otherwise-successful pull of the rest of the agenda.
+                    pass
             items.append(item)
     return items

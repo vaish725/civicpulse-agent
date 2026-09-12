@@ -70,12 +70,20 @@ def run_once(days_ahead: int = 30) -> str:
     """
     items = filter_unseen(fetch_raw_agenda(COUNCIL_BODY_ID, days_ahead=days_ahead))
     if not items:
-        return "No new agenda items since the last run."
+        # Nothing else prints in this branch (the agent never runs, so there
+        # is no console trace to duplicate), so this is the one place that
+        # needs to say so itself.
+        message = "No new agenda items since the last run."
+        print(message)
+        return message
 
     agent = build_agent()
     prompt = "Here are the new agenda items to assess:\n\n" + "\n\n".join(
         _format_item(item) for item in items
     )
+    # Not printed here: the agent already streams its reasoning and final
+    # answer to the console live (Strands' default callback handler), so
+    # printing the return value again would just duplicate everything shown.
     result = agent(prompt)
 
     for item in items:
@@ -85,4 +93,4 @@ def run_once(days_ahead: int = 30) -> str:
 
 
 if __name__ == "__main__":
-    print(run_once())
+    run_once()
