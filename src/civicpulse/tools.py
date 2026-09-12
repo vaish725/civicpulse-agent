@@ -58,7 +58,7 @@ def assess_relevance(item_text: str) -> dict:
 
 
 @tool
-def classify_urgency(item_text: str, meeting_date: str, is_consent: bool) -> dict:
+def classify_urgency(item_text: str, meeting_date: str, is_consent: bool, reference_date: str) -> dict:
     """Judge how time-sensitive an agenda item is.
 
     Legistar does not reliably expose a structured public-comment deadline,
@@ -70,28 +70,50 @@ def classify_urgency(item_text: str, meeting_date: str, is_consent: bool) -> dic
     step for a consent item is "request it be pulled," not "a vote is
     imminent, comment now."
 
+    reference_date must be passed explicitly rather than left for the model
+    to assume: this tool is also used against a cached fallback snapshot
+    when the live feed is down, where "today" is whenever the snapshot was
+    captured, not the real current date. Judging "3 days away" against the
+    wrong anchor date is exactly how a comment window gets reported as open
+    after it has actually closed.
+
     Args:
         item_text: the agenda item's title and any other descriptive text available.
         meeting_date: the date (YYYY-MM-DD) of the meeting this item is on.
         is_consent: whether the item is on the consent calendar.
+        reference_date: the date (YYYY-MM-DD) to treat as "today" for this judgment.
     """
     system_prompt = (
         "You are classifying the urgency of a city government agenda item "
         "for a resident who does not have time to track every meeting. "
+        "You are given an explicit reference_date to treat as 'today'; do "
+        "not substitute any other assumption about the current date, since "
+        "this data may come from a cached snapshot captured on a different "
+        "day than when you are running. Compute how many days away the "
+        "meeting is from reference_date and reason from that. "
         "A consent-calendar item passes automatically as part of a batch "
         "vote unless someone requests it be pulled for individual discussion "
         "before the meeting; for those items the actionable step is "
-        "requesting it be pulled, not commenting on an open vote. "
-        "Classify the level as exactly one of: now, digest, ignore. Use "
-        "'now' only when there is a genuinely imminent, specific action a "
-        "person could still take given the meeting date. Use 'ignore' for "
-        "routine or purely informational items with no real decision at "
-        "stake. Never state a specific comment deadline as fact; you were "
-        "not given one. Respond with only JSON, no other text, of exactly "
-        'this form: {"level": "now" or "digest" or "ignore", "reason": '
-        '"one sentence explaining the judgment"}'
+        "requesting it be pulled, not commenting on an open vote. Consent "
+        "calendars exist specifically to batch-pass routine matters without "
+        "individual debate, so being on consent is not itself a reason to "
+        "flag urgency: classify a consent item as 'now' only if its own "
+        "text shows a concrete signal of something non-routine (real "
+        "controversy, meaningful cost, or an unusual provision) that would "
+        "make requesting a pull worthwhile, and otherwise treat it the same "
+        "as a routine item. Classify the level as exactly one of: now, "
+        "digest, ignore. Use 'now' only when there is a genuinely imminent, "
+        "specific action a person could still take given the meeting date "
+        "relative to reference_date. Use 'ignore' for routine or purely "
+        "informational items with no real decision at stake, or if the "
+        "meeting date is already in the past relative to reference_date. "
+        "Never state a specific comment deadline as fact; you were not given one. "
+        "Respond with only JSON, no other text, of exactly this form: "
+        '{"level": "now" or "digest" or "ignore", "reason": "one sentence '
+        'explaining the judgment, stated relative to reference_date"}'
     )
     user_content = (
+        f"Reference date (treat as 'today'): {reference_date}\n"
         f"Meeting date: {meeting_date}\n"
         f"On consent calendar: {is_consent}\n"
         f"Agenda item:\n{item_text}"

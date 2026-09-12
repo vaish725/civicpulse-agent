@@ -155,24 +155,28 @@ def save_fallback_snapshot(body_id: int, days_ahead: int = 30) -> int:
     return len(items)
 
 
-def load_fallback_snapshot() -> list[dict]:
-    """Load the cached agenda snapshot from disk."""
-    snapshot = json.loads(FALLBACK_SNAPSHOT_PATH.read_text())
-    return snapshot["items"]
-
-
-def fetch_agenda_with_fallback(body_id: int, days_ahead: int = 30) -> list[dict]:
+def fetch_agenda_with_fallback(body_id: int, days_ahead: int = 30) -> dict:
     """Fetch the live agenda, falling back to the cached snapshot on failure.
 
-    This is the function the agent's core loop should call: it tries the
+    This is the function the agent's core loop should call. It tries the
     real feed first so day-to-day runs always see current data, and only
     drops to the cached snapshot if the live site is genuinely unreachable,
     so a demo is never at the mercy of a government website's uptime.
+
+    Returns {"source": "live" or "cached_snapshot", "as_of": an ISO
+    timestamp, "items": the agenda items}. "as_of" matters as much as the
+    items themselves: on a cache hit it is the moment the snapshot was
+    captured, not now, and callers must reason about meeting dates and
+    deadlines relative to it, not to today's real date, or a stale snapshot
+    can confidently report a comment window as "still open" after it has
+    actually closed.
     """
     try:
-        return fetch_agenda(body_id, days_ahead=days_ahead)
+        items = fetch_agenda(body_id, days_ahead=days_ahead)
+        return {"source": "live", "as_of": datetime.now(timezone.utc).isoformat(), "items": items}
     except requests.exceptions.RequestException as e:
         if not FALLBACK_SNAPSHOT_PATH.exists():
             raise
         print(f"Warning: live Legistar fetch failed ({e}); using cached fallback snapshot.")
-        return load_fallback_snapshot()
+        snapshot = json.loads(FALLBACK_SNAPSHOT_PATH.read_text())
+        return {"source": "cached_snapshot", "as_of": snapshot["fetched_at_utc"], "items": snapshot["items"]}
