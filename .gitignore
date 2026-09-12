@@ -13,9 +13,11 @@ venv/
 .env.*
 !.env.example
 
-# local persistence
+# local persistence and generated output (data/fallback/ is the one
+# deliberate exception: a committed real-data snapshot, not runtime state)
 *.sqlite3
 *.db
+data/digest/
 
 # OS / editor
 .DS_Store
