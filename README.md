@@ -133,7 +133,16 @@ None of these are specific to this project; they are standard friction points fo
 
 ## Status
 
-Core loop is complete and tested end to end against live data: ingestion, relevance and urgency judgment, plain-language summaries, neutral comment drafting, a fallback dataset for demo safety, and a rendered digest page. Remaining work: an architecture diagram export, a recorded demo, and an optional Bedrock AgentCore deployment (a Lambda/EventBridge schedule is an equally legitimate fallback if that does not land in time).
+Core loop is complete and tested end to end against live data: ingestion, relevance and urgency judgment, plain-language summaries, neutral comment drafting, a fallback dataset for demo safety, and a rendered digest page. Remaining work: a recorded demo and a final submission pass.
+
+### On Bedrock AgentCore deployment
+
+AgentCore is called out in the hackathon rules as strengthening, not requiring, the Technical Implementation score, and it was evaluated rather than skipped outright. `agentcore create --framework Strands --model-provider Bedrock` genuinely scaffolds a working Python Strands agent project, confirming the toolchain fits this stack. Two concrete things stopped a full deployment within the time available:
+
+- Its deployment path is CDK-based: bootstrapping CDK, building and pushing a container to ECR, and creating IAM roles for the runtime. The IAM user used for this project is deliberately scoped to `AmazonBedrockFullAccess` only (confirmed unable to even read its own attached policies), and granting it CloudFormation, ECR, and IAM role-creation permissions is a real permission-scope decision, not a config change to make silently mid-build.
+- The scaffolded entrypoint contract is built for a conversational, session-based streaming agent (chat-style, with MCP client support), while this project's core loop is a scheduled batch job; adapting one to the other is additional, separate work on top of the permissions question.
+
+A Lambda/EventBridge daily schedule invoking `civicpulse.agent.run_once` is the equally legitimate deployment path this project actually uses conceptually (see `if __name__ == "__main__"` in `agent.py`), and is the natural next step for turning this into a real recurring service.
 
 ## License
 
