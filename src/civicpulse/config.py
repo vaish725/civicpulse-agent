@@ -7,6 +7,13 @@ urgency judgment against a real agenda feed.
 
 import os
 
+from dotenv import load_dotenv
+
+# Loads a local .env file into the environment if one exists (never
+# committed, see .gitignore); lets ANTHROPIC_API_KEY and MODEL_PROVIDER be
+# set once in a file instead of exported in every shell that runs this.
+load_dotenv()
+
 # Legistar client identifier and the body we watch. San Jose publishes many
 # bodies (council, committees, boards); we scope the demo to City Council
 # general business and consent items so the pull stays a manageable size.
