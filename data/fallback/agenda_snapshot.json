@@ -1,5 +1,5 @@
 {
-  "fetched_at_utc": "2026-09-12T01:34:39.200230+00:00",
+  "fetched_at_utc": "2026-09-14T20:56:28.278039+00:00",
   "body_id": 138,
   "items": [
     {
@@ -78,6 +78,10 @@
         {
           "name": "Supplemental Memorandum, 9/10/26",
           "url": "https://legistar.granicus.com/sanjose/attachments/d1c8cbde-5859-4dbc-8bbe-a2182a8884af.pdf"
+        },
+        {
+          "name": "Letters from the Public",
+          "url": "https://legistar.granicus.com/sanjose/attachments/805c07a1-bd2d-45e4-b727-43a3021d4188.pdf"
         }
       ]
     },
@@ -305,6 +309,10 @@
         {
           "name": "Letter from the Public",
           "url": "https://legistar.granicus.com/sanjose/attachments/c83d91ac-3af7-4418-9d87-8aabde1df4d9.pdf"
+        },
+        {
+          "name": "Presentation - est. 5 minutes",
+          "url": "https://legistar.granicus.com/sanjose/attachments/8fab7d1a-bab7-4058-9436-f1d800d6b932.pdf"
         }
       ]
     },
@@ -379,17 +387,13 @@
       "matter_id": 16252,
       "matter_file": "26-953",
       "title": "H23-028, T23-022 & ER23-230 - Site Development Permit and Vesting Tentative Map for Certain Real Property Located at Cozy Drive and Glider Drive.",
-      "matter_type": "Land Use Consent Agenda",
-      "is_consent": true,
+      "matter_type": "Land Use Regular Agenda",
+      "is_consent": false,
       "meeting_date": "2026-09-15",
       "meeting_body": "City Council",
       "agenda_pdf_url": "https://legistar.granicus.com/sanjose/meetings/2026/9/8104_A_City_Council_26-09-15_Amended_Agenda.pdf",
       "source_url": "https://sanjose.legistar.com/LegislationDetail.aspx?ID=16252&GUID=BB5CEA2A-F32D-4EB9-A053-1D21596010B5",
       "attachments": [
-        {
-          "name": "Letters from the Public",
-          "url": "https://legistar.granicus.com/sanjose/attachments/369cb10c-c358-4744-bf85-72f304ffbacc.pdf"
-        },
         {
           "name": "(a) Resolution",
           "url": "https://legistar.granicus.com/sanjose/attachments/c7cf3e34-328f-4992-b146-d4038be2afe1.pdf"
@@ -409,6 +413,14 @@
         {
           "name": "Attachments",
           "url": "https://legistar.granicus.com/sanjose/attachments/e68376d6-3d88-4faf-a1c9-da8d48b48be1.pdf"
+        },
+        {
+          "name": "Letters from the Public - 1 of 2",
+          "url": "https://legistar.granicus.com/sanjose/attachments/f12fd837-91e4-409f-a74d-0286b3486aba.pdf"
+        },
+        {
+          "name": "Letters from the Public - 2 of 2",
+          "url": "https://legistar.granicus.com/sanjose/attachments/28401477-12ba-4863-92f0-e3cf9d3e4087.pdf"
         }
       ]
     },
