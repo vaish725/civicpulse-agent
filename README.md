@@ -4,6 +4,8 @@ CivicPulse reads the agendas so your neighborhood doesn't have to, and only spea
 
 Built for the AWS "Agents for Humans" hackathon, Good Neighbor Agents track.
 
+**Live demo page:** https://civicpulse-agent.vercel.app, a static snapshot of a real, verified digest run. It does not update automatically; see "Setup and running it locally" below to run a fresh pass yourself.
+
 ## The problem
 
 Local government decides zoning, bike lanes, school budgets, and policing budgets: things that hit daily life harder than most federal policy. Almost nobody attends or reads city agendas anyway, because:
