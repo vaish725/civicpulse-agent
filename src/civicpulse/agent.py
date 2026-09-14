@@ -69,7 +69,13 @@ def build_agent():
     if MODEL_PROVIDER == "anthropic":
         from strands.models.anthropic import AnthropicModel
 
-        model = AnthropicModel(model_id=ANTHROPIC_MODEL_ID, max_tokens=4096)
+        # Generous ceiling: the final structured answer covers every item in
+        # one batch (title, judgment, and for "now" items a full drafted
+        # comment), which for a full agenda pull genuinely needs more than
+        # a default-sized budget. A too-low value here does not error out
+        # quickly, it makes the whole run look hung while the model
+        # generates as far as it can before hitting MaxTokensReachedException.
+        model = AnthropicModel(model_id=ANTHROPIC_MODEL_ID, max_tokens=16000)
     else:
         from strands.models import BedrockModel
 
