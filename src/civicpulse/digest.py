@@ -18,6 +18,14 @@ def _escape(text: str | None) -> str:
     return html.escape(text) if text else ""
 
 
+CONSENT_OVERRIDE_NOTE = (
+    "This is on the consent calendar, so it passes automatically as part of a batch vote "
+    "unless someone requests it be pulled for individual discussion before the meeting. "
+    "To request that, contact the City Clerk's office before the meeting date; see the "
+    "primary source link for current contact details."
+)
+
+
 def _item_card(item: ItemAssessment) -> str:
     """Render one agenda item as a self-contained review card."""
     matched = ", ".join(item.matched_priorities) if item.matched_priorities else "none"
@@ -38,9 +46,35 @@ def _item_card(item: ItemAssessment) -> str:
             "(review, personalize, and submit yourself; nothing is sent automatically):</p>"
             f'<pre class="draft">{_escape(item.draft_comment)}</pre>'
         )
+    if item.is_consent:
+        # A "no action needed" judgment on a consent item is still a real
+        # decision made on the reader's behalf; the least the digest owes
+        # them is the mechanism to override it if they disagree with it.
+        parts.append(f'<p class="meta">{_escape(CONSENT_OVERRIDE_NOTE)}</p>')
     parts.append(f'<p><a href="{_escape(item.source_url)}">View on the primary agenda source</a></p>')
     parts.append("</div>")
     return "\n".join(parts)
+
+
+def _reviewed_item_line(item: ItemAssessment) -> str:
+    """Render one line for the collapsed "reviewed, no action" list.
+
+    Includes matched_priorities, not just the title and reason: the whole
+    point of this list is showing an item was genuinely reasoned about, and
+    the matched-priority field is the one that actually proves that (for
+    example, showing an item matched "housing_accessibility" and not
+    "housing_affordability" despite sharing housing-adjacent language).
+    Hiding that field here would bury the digest's best evidence of real
+    semantic judgment behind a collapsed summary.
+    """
+    matched = ", ".join(item.matched_priorities) if item.matched_priorities else "none"
+    line = (
+        f"<li>{_escape(item.title)} (matter {_escape(item.matter_file)}). "
+        f"Matched: {_escape(matched)}. {_escape(item.urgency_reason)}"
+    )
+    if item.is_consent:
+        line += f" {_escape(CONSENT_OVERRIDE_NOTE)}"
+    return line + "</li>"
 
 
 def render_digest(
@@ -71,10 +105,7 @@ def render_digest(
             "<h2>On your radar (not urgent yet)</h2>" + "\n".join(_item_card(i) for i in digest_items)
         )
     if reviewed_items:
-        reviewed_list = "".join(
-            f"<li>{_escape(i.title)} (matter {_escape(i.matter_file)}): {_escape(i.urgency_reason)}</li>"
-            for i in reviewed_items
-        )
+        reviewed_list = "".join(_reviewed_item_line(i) for i in reviewed_items)
         sections.append(
             "<details><summary>Reviewed and relevant, but no action needed right now "
             f"({len(reviewed_items)})</summary><ul>{reviewed_list}</ul></details>"
