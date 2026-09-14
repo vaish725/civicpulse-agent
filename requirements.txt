@@ -1,4 +1,4 @@
-strands-agents
+strands-agents[anthropic]
 boto3
 requests
 python-dotenv

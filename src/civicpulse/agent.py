@@ -8,7 +8,13 @@ on themselves.
 import re
 from datetime import datetime, timezone
 
-from civicpulse.config import BEDROCK_MODEL_ID, BEDROCK_REGION, COUNCIL_BODY_ID
+from civicpulse.config import (
+    ANTHROPIC_MODEL_ID,
+    BEDROCK_MODEL_ID,
+    BEDROCK_REGION,
+    COUNCIL_BODY_ID,
+    MODEL_PROVIDER,
+)
 from civicpulse.digest import render_digest
 from civicpulse.legistar_client import fetch_agenda_with_fallback
 from civicpulse.schemas import AgendaJudgments, ItemAssessment
@@ -50,11 +56,24 @@ def build_agent():
     """Construct the CivicPulse Strands agent. Imported lazily by callers so
     modules that don't need Bedrock (like the tests for individual tools)
     never have to import strands.models.
+
+    Provider selection mirrors bedrock_client.py: MODEL_PROVIDER=anthropic
+    routes the agent's own orchestrating model through the Anthropic API
+    directly instead of Bedrock, for the same reason (an AWS-account-level
+    Bedrock access issue, not anything provider-agnostic in the agent
+    logic, tools, or schemas). See config.py and the README for why this
+    switch exists.
     """
     from strands import Agent
-    from strands.models import BedrockModel
 
-    model = BedrockModel(model_id=BEDROCK_MODEL_ID, region_name=BEDROCK_REGION)
+    if MODEL_PROVIDER == "anthropic":
+        from strands.models.anthropic import AnthropicModel
+
+        model = AnthropicModel(model_id=ANTHROPIC_MODEL_ID, max_tokens=4096)
+    else:
+        from strands.models import BedrockModel
+
+        model = BedrockModel(model_id=BEDROCK_MODEL_ID, region_name=BEDROCK_REGION)
     return Agent(
         model=model,
         tools=[fetch_agenda, assess_relevance, classify_urgency, summarize_plain_language, draft_comment],

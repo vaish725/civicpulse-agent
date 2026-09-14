@@ -5,6 +5,8 @@ a single hardcoded profile is enough to demonstrate genuine relevance and
 urgency judgment against a real agenda feed.
 """
 
+import os
+
 # Legistar client identifier and the body we watch. San Jose publishes many
 # bodies (council, committees, boards); we scope the demo to City Council
 # general business and consent items so the pull stays a manageable size.
@@ -24,6 +26,18 @@ COUNCIL_BODY_ID = 138  # "City Council" in the sanjose Legistar bodies list
 # access is requested in the Bedrock console.
 BEDROCK_MODEL_ID = "us.anthropic.claude-sonnet-4-5-20250929-v1:0"
 BEDROCK_REGION = "us-east-1"
+
+# Bedrock is the default, AWS-native path. MODEL_PROVIDER=anthropic switches
+# to calling the same model directly via the Anthropic API instead, using
+# ANTHROPIC_API_KEY from the environment; this exists because Bedrock model
+# invocation can be blocked by AWS-account-level issues entirely unrelated
+# to this code (see README, "A sudden, account-wide Error 002"), and having
+# a second, independent path means that kind of outage does not block
+# testing or demoing the agent's actual reasoning. Same underlying model
+# snapshot as BEDROCK_MODEL_ID, so behavior should be effectively the same,
+# though the two are not guaranteed byte-identical.
+MODEL_PROVIDER = os.environ.get("MODEL_PROVIDER", "bedrock")
+ANTHROPIC_MODEL_ID = "claude-sonnet-4-5-20250929"
 
 # Neighborhood group priorities. Each one is a plain-language description,
 # not a keyword list, because assess_relevance is a semantic reasoning call:
